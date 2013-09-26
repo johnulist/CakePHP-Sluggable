@@ -9,9 +9,7 @@ env:
 
 before_script:
     - git clone --depth 1 --branch $CAKE_VERSION git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp
-    - mv ../CakePHP-Upload app/Plugin/Upload
-    - chmod -R 777 app/tmp
-    - chmod -R 777 app/webroot
+    - mv ../CakePHP-Sluggable app/Plugin/Sluggable
     - sh -c "mysql -e 'CREATE DATABASE cakephp_test;'"
     - echo "<?php
         class DATABASE_CONFIG {
@@ -25,4 +23,4 @@ before_script:
         }" > app/Config/database.php
 
 script:
-    - ./lib/Cake/Console/cake test Upload Model/Behavior/UploadBehavior --stderr
+    - ./lib/Cake/Console/cake test Sluggable Model/Behavior/SluggableBehavior --stderr
